@@ -1,0 +1,17 @@
+{
+  "name": "final-exam",
+  "version": "1.0.0",
+  "description": "Final Exam Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vedant Patel",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "mongoose": "^7.4.1"
+  }
+}

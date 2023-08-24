@@ -1,0 +1,63 @@
+<%- include('../layouts/header'); -%>
+  
+<div class="container-sm">
+  <%- include('../layouts/nav'); -%> <% if (tasks.length > 0) { %>
+  <h2 class="text-center mb-4 mt-5">
+    Here are the all available Tasks details.
+  </h2>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <table class="table mt-5 table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Task Name</th>
+              <th scope="col">Due Date</th>
+              <th scope="col">Action</th>
+              <th scope="col">Complete</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <% tasks.forEach(function(task, i) { %>
+
+              <% if (typeof task !=='undefined' && task.isComplete) { console.log(task.isComplete) %>
+            <tr class="table-success">
+              <% } else { %><tr>
+                <% } %>
+
+
+              <th scope="row"><%= i + 1 %></th>
+              <td><%= task.name %></td>
+              <td><%= task.dueDate %></td>
+                
+              <td>
+                <a class="btn btn-primary" href="/viewOrEdit/<%= task._id %>"
+                  >View / Edit</a
+                >
+                <a href="/delete/<%= task._id %>" class="btn btn-danger"
+                  >Delete</a
+                >
+              </td>
+              <td>
+                <a class="btn btn-secondary" href="/Complete/<%= task._id %>"
+                  >Complete</a>
+                <a class="btn btn-secondary" href="/NotComplete/<%= task._id %>"
+                  >Not Complete</a
+                >
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% } else { %>
+
+  <!-- If there are no Questions, display the alternate message -->
+  <h2 class="text-center mb-4 mt-5">No Tasks details available.</h2>
+  <% } %> <%- include('../layouts/footer'); -%>
+</div>
+</body>

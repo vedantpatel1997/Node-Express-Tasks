@@ -1,0 +1,73 @@
+<%- include('../layouts/header'); -%>
+
+  <body>
+    <div class="container-sm">
+      <%- include('../layouts/nav'); -%>
+        <main>
+          <div class="container position-relative">
+            <div class="row justify-content-center mt-5">
+              <div class="col-md-6 mb-5">
+
+                <% if (typeof message !== 'undefined') { %>
+                  <h2><%= message %></h2>
+                <% } else { %>
+                  <% if (typeof task !== 'undefined' && task.isComplete) { %>
+                    <div class="shadow p-5 bg-body rounded" style="background-color: lightgreen !important;">
+                  <% } else { %>
+                    <div class="shadow p-5 bg-body rounded">
+                  <% } %>
+                    <h2 class="text-center m-3">Enter Task Detail</h2>
+                    <form action="" method="Post">
+                      <div class="row mb-3">
+                        <label for="name" class="col-3 col-form-label">Task Name:</label>
+                        <div class="col-12">
+                          <input type="text" name="name" <% if (typeof task !== 'undefined') { %> value="<%= task.name %>" <% } %> class="form-control" required />
+                        </div>
+                      </div>
+                
+                      <div class="row mb-3">
+                        <label for="date" class="col-3 col-form-label">Due Date:</label>
+                        <div class="col-12">
+                          <input type="date" name="date" class="form-control"  <% if (typeof task !== 'undefined') { %> value="<%= task.dueDate %>" <% } %> />
+                        </div>
+                        
+                      </div>
+                
+                      <div class="row mb-3">
+                        <label for="description" class="col-3 col-form-label">Description:</label>
+                        <div class="col-12">
+                          <textarea name="description" id="description" class="form-control"><%= typeof task !== 'undefined' ? task.dynamicElement : '' %></textarea>
+                        </div>
+                      </div>
+                
+                      <div class="row mt-3">
+                        <% if (typeof task !== 'undefined') { %>
+                          <button type="submit" class="btn btn-success col-6 mx-auto">
+                            Update
+                          </button>
+                          <a href="/Tasks" class="btn btn-success col-6 mx-auto">
+                            Back
+                          </a>
+                          
+                        <% } else { %>
+                          <button type="submit" class="btn btn-success col-6 mx-auto">
+                            Submit
+                          </button>
+                        <% } %>
+                      </div>
+                    </form>
+                  </div>
+                <% } %>
+                
+        </main>
+        <%- include('../layouts/footer'); -%>
+    </div>
+    <script src="/js/tinymce/jquery.tinymce.min.js"></script>
+    <script src="/js/tinymce/tinymce.min.js"></script>
+    <script>
+      tinymce.init({
+        selector: "#description",
+        height: 400,
+      });
+    </script>
+  </body>

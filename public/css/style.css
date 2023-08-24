@@ -1,0 +1,40 @@
+.row .col-6 {
+  margin-bottom: 10px;
+}
+
+.error_container {
+  /* display: none; */
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}
+
+.receipt {
+  border: 2px solid black;
+  border-radius: 4px;
+  box-shadow: black;
+  padding: 20px;
+}
+
+nav {
+  background-color: #333;
+}
+nav a {
+  color: white;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Set the body to take the full viewport height */
+}
+
+.container-sm {
+  flex: 1; /* Make the container fill the remaining space */
+}
+
+footer {
+  margin-top: auto; /* Push the footer to the bottom of the viewport */
+}
