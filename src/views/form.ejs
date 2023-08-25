@@ -11,11 +11,8 @@
                 <% if (typeof message !== 'undefined') { %>
                   <h2><%= message %></h2>
                 <% } else { %>
-                  <% if (typeof task !== 'undefined' && task.isComplete) { %>
-                    <div class="shadow p-5 bg-body rounded" style="background-color: lightgreen !important;">
-                  <% } else { %>
+                  
                     <div class="shadow p-5 bg-body rounded">
-                  <% } %>
                     <h2 class="text-center m-3">Enter Task Detail</h2>
                     <form action="" method="Post">
                       <div class="row mb-3">
@@ -28,7 +25,7 @@
                       <div class="row mb-3">
                         <label for="date" class="col-3 col-form-label">Due Date:</label>
                         <div class="col-12">
-                          <input type="date" name="date" class="form-control"  <% if (typeof task !== 'undefined') { %> value="<%= task.dueDate %>" <% } %> />
+                          <input required type="date" name="date" class="form-control"  <% if (typeof task !== 'undefined') { %> value="<%= task.dueDate %>" <% } %> />
                         </div>
                         
                       </div>
@@ -36,7 +33,7 @@
                       <div class="row mb-3">
                         <label for="description" class="col-3 col-form-label">Description:</label>
                         <div class="col-12">
-                          <textarea name="description" id="description" class="form-control"><%= typeof task !== 'undefined' ? task.dynamicElement : '' %></textarea>
+                          <textarea required name="description" id="description" class="form-control"><%= typeof task !== 'undefined' ? task.dynamicElement : '' %></textarea>
                         </div>
                       </div>
                 
